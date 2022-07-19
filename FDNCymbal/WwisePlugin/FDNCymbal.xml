@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+The content of this file includes portions of the AUDIOKINETIC Wwise Technology
+released in source code form as part of the SDK installer package.
+
+Commercial License Usage
+
+Licensees holding valid commercial licenses to the AUDIOKINETIC Wwise Technology
+may use this file in accordance with the end user license agreement provided
+with the software or, alternatively, in accordance with the terms contained in a
+written agreement between you and Audiokinetic Inc.
+
+Apache License Usage
+
+Alternatively, this file may be used under the Apache License, Version 2.0 (the
+"Apache License"); you may not use this file except in compliance with the
+Apache License. You may obtain a copy of the Apache License at
+http://www.apache.org/licenses/LICENSE-2.0.
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
+the specific language governing permissions and limitations under the License.
+
+  Copyright (c) 2021 Audiokinetic Inc.
+-->
+<!--
+See https://www.audiokinetic.com/library/edge/?source=SDK&id=plugin__xml.html
+for the documentation about the plugin xml format
+-->
+<PluginModule>
+  <SourcePlugin Name="Ryukau FDNCymbal" CompanyID="64" PluginID="20575">
+    <PluginInfo>
+      <PlatformSupport>
+        <Platform Name="Any"></Platform>
+      </PlatformSupport>
+    </PluginInfo>
+    <Properties>
+      <!-- Add your property definitions here -->
+      <Property Name="Duration" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Duration">
+        <UserInterface Step="0.1" Fine="0.001" Decimals="3" UIMax="10" />
+        <DefaultValue>0.0</DefaultValue>
+        <AudioEnginePropertyID>0</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0.001</Min>
+              <Max>1000</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="Seed" Type="int32" SupportRTPCType="Exclusive" DisplayName="Seed">
+        <UserInterface UIMax="16777211" />
+        <DefaultValue>6583421</DefaultValue>
+        <AudioEnginePropertyID>1</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="int32">
+              <Min>01</Min>
+              <Max>16777211</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="RetriggerTime" Type="bool" SupportRTPCType="Exclusive" DisplayName="RetriggerTime">
+        <DefaultValue>1</DefaultValue>
+        <AudioEnginePropertyID>2</AudioEnginePropertyID>
+      </Property>
+
+      <Property Name="RetriggerStick" Type="bool" SupportRTPCType="Exclusive" DisplayName="RetriggerStick">
+        <DefaultValue>1</DefaultValue>
+        <AudioEnginePropertyID>3</AudioEnginePropertyID>
+      </Property>
+
+      <Property Name="RetriggerTremolo" Type="bool" SupportRTPCType="Exclusive" DisplayName="RetriggerTremolo">
+        <DefaultValue>1</DefaultValue>
+        <AudioEnginePropertyID>4</AudioEnginePropertyID>
+      </Property>
+
+      <Property Name="FDN" Type="bool" SupportRTPCType="Exclusive" DisplayName="FDN">
+        <DefaultValue>0</DefaultValue>
+        <AudioEnginePropertyID>5</AudioEnginePropertyID>
+      </Property>
+
+      <Property Name="FdnTime" Type="Real32" SupportRTPCType="Exclusive" DisplayName="FdnTime">
+        <UserInterface Step="0.0001" Fine="0.0001" Decimals="4" UIMax="0.5" />
+        <DefaultValue>0.2</DefaultValue>
+        <AudioEnginePropertyID>6</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0.0001</Min>
+              <Max>0.5</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="FdnFeedback" Type="Real32" SupportRTPCType="Exclusive" DisplayName="FdnFeedback">
+        <UserInterface Step="0.0001" Fine="0.0001" Decimals="3" UIMax="4" />
+        <DefaultValue>0.5</DefaultValue>
+        <AudioEnginePropertyID>7</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0.0</Min>
+              <Max>4.0</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="FdnCascadeMix" Type="Real32" SupportRTPCType="Exclusive" DisplayName="FdnCascadeMix">
+        <UserInterface Step="0.0001" Fine="0.0001" Decimals="3" UIMax="1" />
+        <DefaultValue>0.5</DefaultValue>
+        <AudioEnginePropertyID>8</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0.0</Min>
+              <Max>1.0</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="AllpassMix" Type="Real32" SupportRTPCType="Exclusive" DisplayName="AllpassMix">
+        <UserInterface Step="0.001" Fine="0.001" Decimals="3" UIMax="1" />
+        <DefaultValue>0.75</DefaultValue>
+        <AudioEnginePropertyID>9</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0.001</Min>
+              <Max>1</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="AllPass1Saturation" Type="bool" SupportRTPCType="Exclusive" DisplayName="AllPass1Saturation">
+        <DefaultValue>1</DefaultValue>
+        <AudioEnginePropertyID>10</AudioEnginePropertyID>
+      </Property>
+
+      <Property Name="Allpass1Time" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Allpass1Time">
+        <UserInterface Step="0.0001" Fine="0.0001" Decimals="4" UIMax="0.005" />
+        <DefaultValue>0.5</DefaultValue>
+        <AudioEnginePropertyID>11</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0</Min>
+              <Max>0.005</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="Allpass1Feedback" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Allpass1Feedback">
+        <UserInterface Step="0.0001" Fine="0.0001" Decimals="4" UIMax="0.9999" />
+        <DefaultValue>0.75</DefaultValue>
+        <AudioEnginePropertyID>12</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0.0</Min>
+              <Max>0.9999</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="Allpass1HighpassCutoff" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Allpass1HighpassCutoff">
+        <UserInterface Step="0.1" Fine="0.001" Decimals="3" UIMax="40.0" />
+        <DefaultValue>0.5</DefaultValue>
+        <AudioEnginePropertyID>13</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>1.0</Min>
+              <Max>400</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="Allpass2Time" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Allpass2Time">
+        <UserInterface Step="0.0001" Fine="0.0001" Decimals="4" UIMax="0.005" />
+        <DefaultValue>0.5</DefaultValue>
+        <AudioEnginePropertyID>14</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0</Min>
+              <Max>0.005</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="Allpass2Feedback" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Allpass2Feedback">
+        <UserInterface Step="0.0001" Fine="0.0001" Decimals="4" UIMax="0.9999" />
+        <DefaultValue>0.5</DefaultValue>
+        <AudioEnginePropertyID>15</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0.0</Min>
+              <Max>0.9999</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="Allpass2HighpassCutoff" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Allpass2HighpassCutoff">
+        <UserInterface Step="0.1" Fine="0.001" Decimals="3" UIMax="40.0" />
+        <DefaultValue>2.0</DefaultValue>
+        <AudioEnginePropertyID>16</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>1.0</Min>
+              <Max>400</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="TremoloMix" Type="Real32" SupportRTPCType="Exclusive" DisplayName="TremoloMix">
+        <UserInterface Step="0.1" Fine="0.001" Decimals="3" UIMax="1" />
+        <DefaultValue>0.2</DefaultValue>
+        <AudioEnginePropertyID>17</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0.0</Min>
+              <Max>1</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="TremoloDepth" Type="Real32" SupportRTPCType="Exclusive" DisplayName="TremoloDepth">
+        <UserInterface Step="0.1" Fine="0.001" Decimals="3" UIMax="1" />
+        <DefaultValue>0.8</DefaultValue>
+        <AudioEnginePropertyID>18</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0.0</Min>
+              <Max>1</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="TremoloFrequency" Type="Real32" SupportRTPCType="Exclusive" DisplayName="TremoloFrequency">
+        <UserInterface Step="0.1" Fine="0.001" Decimals="3" UIMax="20" />
+        <DefaultValue>0.5</DefaultValue>
+        <AudioEnginePropertyID>19</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0.1</Min>
+              <Max>20</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="TremoloDelayTime" Type="Real32" SupportRTPCType="Exclusive" DisplayName="TremoloDelayTime">
+        <UserInterface Step="0.00001" Fine="0.000001" Decimals="6" UIMax="0.001" />
+        <DefaultValue>0.25</DefaultValue>
+        <AudioEnginePropertyID>20</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0.00003</Min>
+              <Max>0.001</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="=RandomTremoloDepth" Type="Real32" SupportRTPCType="Exclusive" DisplayName="RandomTremoloDepth">
+        <UserInterface Step="0.1" Fine="0.001" Decimals="3" UIMax="1" />
+        <DefaultValue>0.35</DefaultValue>
+        <AudioEnginePropertyID>21</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0.0</Min>
+              <Max>1</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="RandomTremoloFrequency" Type="Real32" SupportRTPCType="Exclusive" DisplayName="RandomTremoloFrequency">
+        <UserInterface Step="0.1" Fine="0.001" Decimals="3" UIMax="1" />
+        <DefaultValue>0.35</DefaultValue>
+        <AudioEnginePropertyID>22</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0.0</Min>
+              <Max>1</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="RandomTremoloDelayTime" Type="Real32" SupportRTPCType="Exclusive" DisplayName="RandomTremoloDelayTime">
+        <UserInterface Step="0.1" Fine="0.001" Decimals="3" UIMax="1" />
+        <DefaultValue>0.35</DefaultValue>
+        <AudioEnginePropertyID>23</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0.0</Min>
+              <Max>1</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="Stick" Type="bool" SupportRTPCType="Exclusive" DisplayName="Stick">
+        <DefaultValue>1</DefaultValue>
+        <AudioEnginePropertyID>24</AudioEnginePropertyID>
+      </Property>
+
+      <Property Name="StickDecay" Type="Real32" SupportRTPCType="Exclusive" DisplayName="StickDecayn">
+        <UserInterface Step="0.1" Fine="0.001" Decimals="3" UIMax="4" />
+        <DefaultValue>0.5</DefaultValue>
+        <AudioEnginePropertyID>25</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0.01</Min>
+              <Max>4.0</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="StickToneMix" Type="Real32" SupportRTPCType="Exclusive" DisplayName="StickToneMix">
+        <UserInterface Step="0.001" Fine="0.00001" Decimals="3" UIMax="0.02" />
+        <DefaultValue>0.5</DefaultValue>
+        <AudioEnginePropertyID>26</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0.0</Min>
+              <Max>0.02</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="StickPulseMix" Type="Real32" SupportRTPCType="Exclusive" DisplayName="StickPulseMix">
+        <UserInterface Step="0.1" Fine="0.001" Decimals="3" UIMax="1" />
+        <DefaultValue>0.5</DefaultValue>
+        <AudioEnginePropertyID>27</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0.0</Min>
+              <Max>1</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="StickVelvetMix" Type="Real32" SupportRTPCType="Exclusive" DisplayName="StickVelvetMix">
+        <UserInterface Step="0.1" Fine="0.001" Decimals="3" UIMax="1" />
+        <DefaultValue>0.5</DefaultValue>
+        <AudioEnginePropertyID>28</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0.0</Min>
+              <Max>1.0</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="Smoothness" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Smoothness">
+        <UserInterface Step="0.1" Fine="0.001" Decimals="3" UIMax="0.5" />
+        <DefaultValue>0.1</DefaultValue>
+        <AudioEnginePropertyID>29</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0.0</Min>
+              <Max>0.5</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <Property Name="Trigger" Type="bool" SupportRTPCType="Exclusive" DisplayName="Trigger">
+        <DefaultValue>0</DefaultValue>
+        <AudioEnginePropertyID>30</AudioEnginePropertyID>
+      </Property>
+
+      <Property Name="Pitch" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Pitch">
+        <UserInterface Step="0.1" Fine="0.01" Decimals="3" UIMax="18000" />
+        <DefaultValue>400.0</DefaultValue>
+        <AudioEnginePropertyID>31</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>100</Min>
+              <Max>18000</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+      
+    </Properties>
+  </SourcePlugin>
+</PluginModule>
