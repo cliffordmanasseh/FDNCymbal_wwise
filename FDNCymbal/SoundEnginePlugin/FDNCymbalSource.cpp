@@ -381,7 +381,7 @@ void FDNCymbalSource::Execute(AkAudioBuffer* out_pBuffer)
         // Generate output here
         //dsp.process((size_t)out_pBuffer->MaxFrames(),pBuf);
 
-         uFramesProduced = 0;
+        uFramesProduced = 0;
         m_PitchBegin = m_Pitch;
         m_FdnTimeBegin = m_FdnTime;
         m_FdnFeedbackBegin = m_FdnFeedback;

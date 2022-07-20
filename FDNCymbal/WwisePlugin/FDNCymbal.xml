@@ -58,7 +58,7 @@ for the documentation about the plugin xml format
         <Restrictions>
           <ValueRestriction>
             <Range Type="int32">
-              <Min>01</Min>
+              <Min>1</Min>
               <Max>16777211</Max>
             </Range>
           </ValueRestriction>
@@ -81,7 +81,7 @@ for the documentation about the plugin xml format
       </Property>
 
       <Property Name="FDN" Type="bool" SupportRTPCType="Exclusive" DisplayName="FDN">
-        <DefaultValue>0</DefaultValue>
+        <DefaultValue>1</DefaultValue>
         <AudioEnginePropertyID>5</AudioEnginePropertyID>
       </Property>
 
@@ -286,7 +286,7 @@ for the documentation about the plugin xml format
         </Restrictions>
       </Property>
 
-      <Property Name="=RandomTremoloDepth" Type="Real32" SupportRTPCType="Exclusive" DisplayName="RandomTremoloDepth">
+      <Property Name="RandomTremoloDepth" Type="Real32" SupportRTPCType="Exclusive" DisplayName="RandomTremoloDepth">
         <UserInterface Step="0.1" Fine="0.001" Decimals="3" UIMax="1" />
         <DefaultValue>0.35</DefaultValue>
         <AudioEnginePropertyID>21</AudioEnginePropertyID>
