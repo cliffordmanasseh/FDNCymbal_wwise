@@ -55,6 +55,9 @@
 #define IDC_STICKVELVETMIX              1048
 #define IDC_STICKPITCH                  1049
 #define IDC_STICKSMOOTH                 1050
+#define IDC_RNDTD                       1051
+#define IDC_RNDTF                       1052
+#define IDC_RNDTDLY                     1053
 
 // Next default values for new objects
 // 

@@ -8,7 +8,7 @@ AK_WWISE_PLUGIN_GUI_WINDOWS_POP_ITEM(IDC_FDN, szFDN)
 AK_WWISE_PLUGIN_GUI_WINDOWS_POP_ITEM(IDC_STICK, szStick)
 AK_WWISE_PLUGIN_GUI_WINDOWS_POP_ITEM(IDC_RETRIGSTICK, szRetriggerStick)
 AK_WWISE_PLUGIN_GUI_WINDOWS_POP_ITEM(IDC_RETRIGTIME, szRetriggerTime)
-AK_WWISE_PLUGIN_GUI_WINDOWS_POP_ITEM(IDC_RETRIGTREM, szRetriggerTime)
+AK_WWISE_PLUGIN_GUI_WINDOWS_POP_ITEM(IDC_RETRIGTREM, szRetriggerTremolo)
 AK_WWISE_PLUGIN_GUI_WINDOWS_POP_ITEM(IDC_SATURATE, szAllpass1Saturation)
 
 AK_WWISE_PLUGIN_GUI_WINDOWS_END_POPULATE_TABLE()
@@ -121,34 +121,6 @@ void FDNCymbalPluginGUI::enableFDN(bool in, HWND in_hWnd)
 	::EnableWindow(hwndItem, in);
 
 	 hwndItem = GetDlgItem(in_hWnd, IDC_CASCADEMIX);
-	AKASSERT(hwndItem);
-	::EnableWindow(hwndItem, in);
-
-	 hwndItem = GetDlgItem(in_hWnd, IDC_ALLPASSMIX);
-	AKASSERT(hwndItem);
-	::EnableWindow(hwndItem, in);
-
-	 hwndItem = GetDlgItem(in_hWnd, IDC_AP1DELAYTIME);
-	AKASSERT(hwndItem);
-	::EnableWindow(hwndItem, in);
-
-	 hwndItem = GetDlgItem(in_hWnd, IDC_AP2DELAYTIME);
-	AKASSERT(hwndItem);
-	::EnableWindow(hwndItem, in);
-
-	 hwndItem = GetDlgItem(in_hWnd, IDC_AP1FB);
-	AKASSERT(hwndItem);
-	::EnableWindow(hwndItem, in);
-
-	 hwndItem = GetDlgItem(in_hWnd, IDC_AP2FB);
-	AKASSERT(hwndItem);
-	::EnableWindow(hwndItem, in);
-
-	 hwndItem = GetDlgItem(in_hWnd, IDC_AP1HPF);
-	AKASSERT(hwndItem);
-	::EnableWindow(hwndItem, in);
-
-	 hwndItem = GetDlgItem(in_hWnd, IDC_AP2HPF);
 	AKASSERT(hwndItem);
 	::EnableWindow(hwndItem, in);
 }

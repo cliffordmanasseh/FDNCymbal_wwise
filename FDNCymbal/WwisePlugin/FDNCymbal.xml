@@ -52,14 +52,14 @@ for the documentation about the plugin xml format
       </Property>
 
       <Property Name="Seed" Type="int32" SupportRTPCType="Exclusive" DisplayName="Seed">
-        <UserInterface UIMax="16777211" />
+        <UserInterface UIMax="16777215" />
         <DefaultValue>6583421</DefaultValue>
         <AudioEnginePropertyID>1</AudioEnginePropertyID>
         <Restrictions>
           <ValueRestriction>
             <Range Type="int32">
               <Min>1</Min>
-              <Max>16777211</Max>
+              <Max>16777215</Max>
             </Range>
           </ValueRestriction>
         </Restrictions>
@@ -182,7 +182,7 @@ for the documentation about the plugin xml format
           <ValueRestriction>
             <Range Type="Real32">
               <Min>1.0</Min>
-              <Max>400</Max>
+              <Max>40</Max>
             </Range>
           </ValueRestriction>
         </Restrictions>
@@ -224,7 +224,7 @@ for the documentation about the plugin xml format
           <ValueRestriction>
             <Range Type="Real32">
               <Min>1.0</Min>
-              <Max>400</Max>
+              <Max>40</Max>
             </Range>
           </ValueRestriction>
         </Restrictions>
@@ -348,8 +348,8 @@ for the documentation about the plugin xml format
       </Property>
 
       <Property Name="StickToneMix" Type="Real32" SupportRTPCType="Exclusive" DisplayName="StickToneMix">
-        <UserInterface Step="0.001" Fine="0.00001" Decimals="3" UIMax="0.02" />
-        <DefaultValue>0.5</DefaultValue>
+        <UserInterface Step="0.001" Fine="0.00001" Decimals="3" UIMax="0.5" />
+        <DefaultValue>0.01</DefaultValue>
         <AudioEnginePropertyID>26</AudioEnginePropertyID>
         <Restrictions>
           <ValueRestriction>

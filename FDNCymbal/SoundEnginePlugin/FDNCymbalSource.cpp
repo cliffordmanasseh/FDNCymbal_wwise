@@ -123,9 +123,9 @@ void FDNCymbalSource::Execute(AkAudioBuffer* out_pBuffer)
 
     AkReal32 m_Seed = m_pParams->RTPC.fSeed;
 
-    bool m_RetriggerTime = m_pParams->RTPC.fRetriggerTime;
-    bool m_RetriggerStick = m_pParams->RTPC.fRetriggerStick;
-    bool m_RetriggerTremolo = m_pParams->RTPC.fRetriggerTremolo;
+    bool m_RetriggerTime = !(m_pParams->RTPC.fRetriggerTime);
+    bool m_RetriggerStick = !(m_pParams->RTPC.fRetriggerStick);
+    bool m_RetriggerTremolo = !(m_pParams->RTPC.fRetriggerTremolo);
 
 
     bool m_FDN = m_pParams->RTPC.fFDN;
@@ -378,39 +378,11 @@ void FDNCymbalSource::Execute(AkAudioBuffer* out_pBuffer)
     {
         AkReal32* AK_RESTRICT pBuf = (AkReal32* AK_RESTRICT)out_pBuffer->GetChannel(i);
 
-        // Generate output here
-        //dsp.process((size_t)out_pBuffer->MaxFrames(),pBuf);
 
         uFramesProduced = 0;
-        m_PitchBegin = m_Pitch;
-        m_FdnTimeBegin = m_FdnTime;
-        m_FdnFeedbackBegin = m_FdnFeedback;
-        m_FdnCascadeMixBegin = m_FdnCascadeMix;
-        m_AllpassMixBegin = m_AllpassMix;
-        m_Allpass1TimeBegin = m_Allpass1Time;
-        m_Allpass1FeedbackBegin = m_Allpass1Feedback;
-        m_Allpass1HighpassCutoffBegin = m_Allpass1HighpassCutoff;
-        m_Allpass2TimeBegin = m_Allpass2Time;
-        m_Allpass2FeedbackBegin = m_Allpass2Feedback;
-        m_Allpass2HighpassCutoffBegin = m_Allpass2HighpassCutoff;
-        m_TremoloMixBegin = m_TremoloMix;
-        m_TremoloDepthBegin = m_TremoloDepth;
-        m_TremoloFrequencyBegin = m_TremoloFrequency;
-        m_TremoloDelayTimeBegin = m_TremoloDelayTime;
-        m_RandomTremoloDepthBegin = m_RandomTremoloDepth;
-        m_RandomTremoloFrequencyBegin = m_RandomTremoloFrequency;
-        m_RandomTremoloDelayTimeBegin = m_RandomTremoloDelayTime;
-        m_StickDecayBegin = m_StickDecay;
-        m_StickToneMixBegin = m_StickToneMix;
-        m_StickPulseMixBegin = m_StickPulseMix;
-        m_StickVelvetMixBegin = m_StickVelvetMix;
-        m_SmoothnessBegin = m_Smoothness;
-        m_PitchBegin = m_Pitch;
-
-
-
         while (uFramesProduced < out_pBuffer->uValidFrames)
         {
+            float sample = 0.0f;
 
             if (Trigger)
             {
@@ -491,8 +463,8 @@ void FDNCymbalSource::Execute(AkAudioBuffer* out_pBuffer)
 
                 Trigger = false;
             }
-            float sample = 0.0f;
-            if (pBuf != nullptr) sample += pBuf[uFramesProduced];
+
+            //if (pBuf != nullptr) { sample += pBuf[uFramesProduced]; }
 
             const float pitch = m_PitchBegin;
             if (!stickEnvelope.isTerminated) {
@@ -503,8 +475,7 @@ void FDNCymbalSource::Execute(AkAudioBuffer* out_pBuffer)
                 float stickTone = 0.0f;
                 for (auto& osc : stickOscillator) stickTone += osc.process();
                 velvet.setDensity(pitch);
-                sample += pulseMix * pulsar.process()
-                    + stickEnv * (toneMix * stickTone + velvetMix * velvet.process());
+                sample += pulseMix * pulsar.process()+ stickEnv * ((toneMix * stickTone) + velvetMix * velvet.process());
             }
 
             // FDN.
@@ -548,10 +519,8 @@ void FDNCymbalSource::Execute(AkAudioBuffer* out_pBuffer)
                 * ((tremoloDepth * tremoloLFO + 1.0f - tremoloDepth) * tremoloDelay.process(sample)
                     - sample);
 
+             *pBuf++ = sample;
 
-            // Only write to buffer if bypass is off. This is because VST 3 specification says
-            // that input and output buffer may points to the same memory region.
-            *pBuf++ = 0.01 * sample;
             ++uFramesProduced;
 
             m_FdnTimeBegin += m_FdnTimeStep;

@@ -50,66 +50,75 @@ END
 // Dialog
 //
 
-IDD_FDNC_BIG DIALOGEX 0, 0, 308, 400
+IDD_FDNC_BIG DIALOGEX 0, 0, 308, 408
 STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPCHILDREN | WS_SYSMENU
 EXSTYLE WS_EX_CONTROLPARENT
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    GROUPBOX        "Uhhyou FDNCymbal",IDC_STATIC,7,7,294,386
-    LTEXT           "Class=SuperRange;Prop=Seed;Title=Seed;Min=1;Mid=6583421;Max=16777211;UIMin=1;UIMax=16777211",IDC_SEED,24,84,132,17,WS_BORDER
+    GROUPBOX        "Uhhyou FDNCymbal",IDC_STATIC,7,7,294,394
+    LTEXT           "Class=SuperRange;Prop=Seed;Title=Seed;Min=0;Mid=6583421;Max=16777215;UIMin=0;UIMax=16777215",IDC_SEED,24,84,132,17,WS_BORDER
     LTEXT           "Class=SuperRange;Prop=FdnTime;Title=FDN Delay;Min=0.0001;Mid=0.05;Max=0.5;UIMin=0.0001;UIMax=0.5;Fine=0.0001;Decimals=5",IDC_FDNTIME,31,145,73,16,WS_BORDER
     LTEXT           "Class=SuperRange;Prop=FdnFeedback;Title=FDN Feedback;Min=0;Mid=2;Max=4;UIMin=0;UIMax=4;Fine=0.0001;Decimals=5",IDC_FDNFB,31,172,73,16,WS_BORDER
     LTEXT           "Class=SuperRange;Prop=FdnCascadeMix;Title=FDN CascadeMix;Min=0;Mid=0.5;Max=1;UIMin=0;UIMax=1;Fine=0.0001;Decimals=5",IDC_CASCADEMIX,31,199,73,16,WS_BORDER
-    LTEXT           "Class=SuperRange;Prop=AllpassMix;Title=AllPass Mix;Min=0.001;Mid=0.5;Max=1;UIMin=0.001;UIMax=1;Fine=0.0001;Decimals=5",IDC_ALLPASSMIX,53,231,73,16,WS_BORDER
-    LTEXT           "Class=SuperRange;Prop=Allpass1Time;Title=DelayTime;Min=0;Mid=0.0025;Max=0.005;UIMin=0;UIMax=0.005;Fine=0.0001;Decimals=5",IDC_AP1DELAYTIME,32,277,45,15,WS_BORDER
-    LTEXT           "Class=SuperRange;Prop=Allpass1Feedback;Title=Feedback;Min=0;Mid=0.5;Max=0.9999;UIMin=0;UIMax=0.9999;Fine=0.0001;Decimals=5",IDC_AP1FB,32,303,45,15,WS_BORDER
-    LTEXT           "Class=SuperRange;Prop=Allpass1HighpassCutoff;Title=Highpass Cutoff;Min=1;Mid=200;Max=400;UIMin=1;UIMax=400;Fine=0.0001;Decimals=5",IDC_AP1HPF,32,332,45,15,WS_BORDER
-    LTEXT           "Class=SuperRange;Prop=TermoloMix;Title=Mix;Min=0;Mid=0.5;Max=1;UIMin=0;UIMax=1;Fine=0.0001;Decimals=5",IDC_TERMMIX,188,52,73,16,WS_BORDER
-    LTEXT           "Class=SuperRange;Prop=TremoloDepth;Title=Depth;Min=0;Mid=0.5;Max=1;UIMin=0;UIMax=1;Fine=0.0001;Decimals=5",IDC_TERMDEPTH,188,78,73,16,WS_BORDER
-    LTEXT           "Class=SuperRange;Prop=TremoloFrequency;Title=Frequency;Min=0.1;Mid=10;Max=20;UIMin=0;UIMax=20;Fine=0.0001;Decimals=5",IDC_TERMFREQUENCY,188,104,73,16,WS_BORDER
-    LTEXT           "Class=SuperRange;Prop=TremoloDelayTime;Title=Delay Time;Min=0.00003;Mid=0.0005;Max=0.001;UIMin=0.00003;UIMax=0.001;Fine=0.0001;Decimals=5",IDC_TERMDELAYTIME,188,128,73,16,WS_BORDER
-    LTEXT           "Class=SuperRange;Prop=StickDecay;Title=Decay;Min=0.01;Mid=2.0;Max=4.0;UIMin=0.01;UIMax=4.0;Fine=0.0001;Decimals=5",IDC_STICKDECAY,189,190,73,14,WS_BORDER
-    LTEXT           "Class=SuperRange;Prop=StickToneMix;Title=Tone Mix;Min=0;Mid=0.01;Max=0.02;UIMin=0;UIMax=0.02;Fine=0.0001;Decimals=5",IDC_STICKTONEMIX,189,215,73,14,WS_BORDER
-    LTEXT           "Class=SuperRange;Prop=StickPulseMix;Title=Pulse Mix;Min=0;Mid=0.5;Max=1.0;UIMin=0;UIMax=1;Fine=0.0001;Decimals=5",IDC_STICKPULSEMIX,189,241,73,14,WS_BORDER
-    LTEXT           "Class=SuperRange;Prop=StickVelvetMix;Title=Velvet Mix;Min=0;Mid=0.5;Max=1.0;UIMin=0;UIMax=1;Fine=0.0001;Decimals=5",IDC_STICKVELVETMIX,189,267,73,14,WS_BORDER
-    LTEXT           "Class=SuperRange;Prop=Smoothness;Title=Smoothness;Min=0;Mid=0.25;Max=0.5;UIMin=0;UIMax=0.5;Fine=0.0001;Decimals=5",IDC_STICKSMOOTH,164,321,73,15,WS_BORDER
+    LTEXT           "Class=SuperRange;Prop=AllpassMix;Title=AllPass Mix;Min=0.001;Mid=0.5;Max=1;UIMin=0.001;UIMax=1;Fine=0.0001;Decimals=5",IDC_ALLPASSMIX,53,252,73,16,WS_BORDER
+    LTEXT           "Class=SuperRange;Prop=Allpass1Time;Title=DelayTime;Min=0;Mid=0.0025;Max=0.005;UIMin=0;UIMax=0.005;Fine=0.0001;Decimals=5",IDC_AP1DELAYTIME,32,300,45,15,WS_BORDER
+    LTEXT           "Class=SuperRange;Prop=Allpass1Feedback;Title=Feedback;Min=0;Mid=0.5;Max=0.9999;UIMin=0;UIMax=0.9999;Fine=0.0001;Decimals=5",IDC_AP1FB,32,326,45,15,WS_BORDER
+    LTEXT           "Class=SuperRange;Prop=Allpass1HighpassCutoff;Title=Highpass Cutoff;Min=1;Mid=20;Max=40;UIMin=1;UIMax=40;Fine=0.0001;Decimals=5",IDC_AP1HPF,32,356,45,15,WS_BORDER
+    LTEXT           "Class=SuperRange;Prop=TremoloMix;Title=Mix;Min=0;Mid=0.5;Max=1;UIMin=0;UIMax=1;Fine=0.0001;Decimals=5",IDC_TERMMIX,188,69,73,16,WS_BORDER
+    LTEXT           "Class=SuperRange;Prop=TremoloDepth;Title=Depth;Min=0;Mid=0.5;Max=1;UIMin=0;UIMax=1;Fine=0.0001;Decimals=5",IDC_TERMDEPTH,188,95,73,16,WS_BORDER
+    LTEXT           "Class=SuperRange;Prop=TremoloFrequency;Title=Frequency;Min=0.1;Mid=10;Max=20;UIMin=0;UIMax=20;Fine=0.0001;Decimals=5",IDC_TERMFREQUENCY,188,121,73,16,WS_BORDER
+    LTEXT           "Class=SuperRange;Prop=TremoloDelayTime;Title=Delay Time;Min=0.00003;Mid=0.0005;Max=0.001;UIMin=0.00003;UIMax=0.001;Fine=0.0001;Decimals=5",IDC_TERMDELAYTIME,188,145,73,16,WS_BORDER
+    LTEXT           "Class=SuperRange;Prop=StickDecay;Title=Decay;Min=0.01;Mid=2.0;Max=4.0;UIMin=0.01;UIMax=4.0;Fine=0.0001;Decimals=5",IDC_STICKDECAY,189,207,73,14,WS_BORDER
+    LTEXT           "Class=SuperRange;Prop=StickToneMix;Title=Tone Mix;Min=0;Mid=0.01;Max=0.02;UIMin=0;UIMax=0.02;Fine=0.0001;Decimals=5",IDC_STICKTONEMIX,189,232,73,14,WS_BORDER
+    LTEXT           "Class=SuperRange;Prop=StickPulseMix;Title=Pulse Mix;Min=0;Mid=0.5;Max=1.0;UIMin=0;UIMax=1;Fine=0.0001;Decimals=5",IDC_STICKPULSEMIX,189,258,73,14,WS_BORDER
+    LTEXT           "Class=SuperRange;Prop=StickVelvetMix;Title=Velvet Mix;Min=0;Mid=0.5;Max=1.0;UIMin=0;UIMax=1;Fine=0.0001;Decimals=5",IDC_STICKVELVETMIX,189,284,73,14,WS_BORDER
+    LTEXT           "Class=SuperRange;Prop=Smoothness;Title=Smoothness;Min=0;Mid=0.25;Max=0.5;UIMin=0;UIMax=0.5;Fine=0.0001;Decimals=5",IDC_STICKSMOOTH,164,338,73,15,WS_BORDER
     LTEXT           "Seed",IDC_STATIC,76,74,17,8
-    CONTROL         "Retrigger Time",IDC_RETRIGTIME,"Button",BS_AUTOCHECKBOX | BS_PUSHLIKE | WS_TABSTOP,192,353,63,14
-    CONTROL         "Retrigger Stick",IDC_RETRIGSTICK,"Button",BS_AUTOCHECKBOX | BS_PUSHLIKE | WS_TABSTOP,192,338,63,14
-    CONTROL         "Retrigger Tremolo",IDC_RETRIGTREM,"Button",BS_AUTOCHECKBOX | BS_PUSHLIKE | WS_TABSTOP,187,369,73,13
-    GROUPBOX        "FDN",IDC_STATIC,22,112,134,268
+    CONTROL         "",IDC_RETRIGTIME,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,218,383,22,14
+    CONTROL         "",IDC_RETRIGSTICK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,182,383,19,14
+    CONTROL         "",IDC_RETRIGTREM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,254,383,25,13
+    GROUPBOX        "FDN",IDC_STATIC,22,112,134,113
     CONTROL         "FDN",IDC_FDN,"Button",BS_AUTOCHECKBOX | BS_PUSHLIKE | WS_TABSTOP,103,122,48,15
     LTEXT           "FDN Time",IDS_FDNTIME,32,136,31,8
     LTEXT           "FDN Feedback",IDS_FDNFB,30,163,47,8
     LTEXT           "FDN Cascade Mix",IDS_FDNCMIX,30,189,56,8
-    LTEXT           "Allpass Mix",IDS_APMIX,67,217,36,8
-    CONTROL         "Saturate",IDC_SATURATE,"Button",BS_AUTOCHECKBOX | BS_PUSHLIKE | WS_TABSTOP,63,352,44,19
-    LTEXT           "Delay Time",IDS_AP1TIME,32,267,36,8
-    LTEXT           "Feedback",IDS_AP1FB,32,293,32,8
-    LTEXT           "Highpass Cutoff",IDS_AP1HPF,32,321,52,8
-    LTEXT           "Class=SuperRange;Prop=Allpass2Time;Title=Delay Time;Min=0;Mid=0.0025;Max=0.005;UIMin=0;UIMax=0.005;Fine=0.0001;Decimals=5",IDC_AP2DELAYTIME,93,277,45,15,WS_BORDER
-    LTEXT           "Class=SuperRange;Prop=Allpass2Feedback;Title=Feedback;Min=0;Mid=0.5;Max=0.9999;UIMin=0;UIMax=0.9999;Fine=0.0001;Decimals=5",IDC_AP2FB,93,303,45,15,WS_BORDER
-    LTEXT           "Class=SuperRange;Prop=Allpass2HighpassCutoff;Title=Highpass Cutoff;Min=1;Mid=200;Max=400;UIMin=1;UIMax=400;Fine=0.0001;Decimals=5",IDC_AP2HPF,93,332,45,15,WS_BORDER
-    LTEXT           "Delay Time",IDS_AP2TIME,93,267,36,8
-    LTEXT           "Feedback",IDS_AP2FB,93,293,32,8
-    LTEXT           "Highpass Cutoff",IDS_AP2HPF,93,321,52,8
-    LTEXT           "Filter 1",IDS_AP1,39,250,23,8
-    LTEXT           "Filter 2",IDS_AP2,99,250,23,8
-    GROUPBOX        "Tremolo",IDC_STATIC,159,33,126,120
-    LTEXT           "Tremolo Mix",IDS_TREMMIX,188,43,39,8
-    LTEXT           "Tremolo Depth",IDS_TREMDEPTH,188,68,48,8
-    LTEXT           "Tremolo Frequency",IDS_TREMFQ,188,94,62,8
-    LTEXT           "Tremolo Delay TIme",IDS_TREMDLY,188,120,64,8
-    GROUPBOX        "Stick",IDC_STATIC,164,159,123,128
-    CONTROL         "Stick",IDC_STICK,"Button",BS_AUTOCHECKBOX | BS_PUSHLIKE | WS_TABSTOP,244,169,36,14
+    LTEXT           "Allpass Mix",IDS_APMIX,67,240,36,8
+    CONTROL         "Saturate",IDC_SATURATE,"Button",BS_AUTOCHECKBOX | BS_PUSHLIKE | WS_TABSTOP,63,375,44,19
+    LTEXT           "Delay Time",IDS_AP1TIME,32,290,36,8
+    LTEXT           "Feedback",IDS_AP1FB,32,316,32,8
+    LTEXT           "Highpass Cutoff",IDS_AP1HPF,32,344,52,8
+    LTEXT           "Class=SuperRange;Prop=Allpass2Time;Title=Delay Time;Min=0;Mid=0.0025;Max=0.005;UIMin=0;UIMax=0.005;Fine=0.0001;Decimals=5",IDC_AP2DELAYTIME,93,300,45,15,WS_BORDER
+    LTEXT           "Class=SuperRange;Prop=Allpass2Feedback;Title=Feedback;Min=0;Mid=0.5;Max=0.9999;UIMin=0;UIMax=0.9999;Fine=0.0001;Decimals=5",IDC_AP2FB,93,326,45,15,WS_BORDER
+    LTEXT           "Class=SuperRange;Prop=Allpass2HighpassCutoff;Title=Highpass Cutoff;Min=1;Mid=20;Max=40;UIMin=1;UIMax=40;Fine=0.0001;Decimals=5",IDC_AP2HPF,93,356,45,15,WS_BORDER
+    LTEXT           "Delay Time",IDS_AP2TIME,93,290,36,8
+    LTEXT           "Feedback",IDS_AP2FB,93,316,32,8
+    LTEXT           "Highpass Cutoff",IDS_AP2HPF,93,344,52,8
+    LTEXT           "Filter 1",IDS_AP1,39,279,23,8
+    LTEXT           "Filter 2",IDS_AP2,99,279,23,8
+    GROUPBOX        "Tremolo",IDC_STATIC,159,50,126,120
+    LTEXT           "Tremolo Mix",IDS_TREMMIX,188,60,39,8
+    LTEXT           "Tremolo Depth",IDS_TREMDEPTH,188,85,48,8
+    LTEXT           "Tremolo Frequency",IDS_TREMFQ,188,111,62,8
+    LTEXT           "Tremolo Delay TIme",IDS_TREMDLY,188,137,64,8
+    GROUPBOX        "Stick",IDC_STATIC,164,176,123,128
+    CONTROL         "Stick",IDC_STICK,"Button",BS_AUTOCHECKBOX | BS_PUSHLIKE | WS_TABSTOP,244,186,36,14
     CONTROL         "Trigger",IDC_TRIGGER,"Button",BS_AUTOCHECKBOX | BS_PUSHLIKE | WS_TABSTOP,47,40,85,22
-    LTEXT           "Stick Decay",IDS_STICKDCY,189,180,38,8
-    LTEXT           "Stick Tone Mix",IDS_STICKTONE,189,204,46,8
-    LTEXT           "Stick Pulse Mix",IDS_STICKPULSE,188,230,47,8
-    LTEXT           "Stick Velvet Mix",IDS_STICKVELVET,189,256,50,8
-    LTEXT           "Class=SuperRange;Prop=Pitch;Title=Pitch;Min=100;Mid=9000;Max=18000;UIMin=100;UIMax=18000;Fine=0.0001;Decimals=5",IDC_STICKPITCH,214,302,73,16,WS_BORDER
-    LTEXT           "Pitch",IDS_PITCH,214,292,73,8
-    LTEXT           "Smoothness",IDS_SMOOTH,164,311,40,8
+    LTEXT           "Stick Decay",IDS_STICKDCY,189,197,38,8
+    LTEXT           "Stick Tone Mix",IDS_STICKTONE,189,221,46,8
+    LTEXT           "Stick Pulse Mix",IDS_STICKPULSE,188,247,47,8
+    LTEXT           "Stick Velvet Mix",IDS_STICKVELVET,189,273,50,8
+    LTEXT           "Class=SuperRange;Prop=Pitch;Title=Pitch;Min=100;Mid=9000;Max=18000;UIMin=100;UIMax=18000;Fine=0.0001;Decimals=5",IDC_STICKPITCH,214,319,73,16,WS_BORDER
+    LTEXT           "Pitch",IDS_PITCH,214,309,73,8
+    LTEXT           "Smoothness",IDS_SMOOTH,164,328,40,8
+    LTEXT           "Class=SuperRange;Prop=RandomTremoloDepth;Title=Depth Time;Min=0;Mid=0.5;Max=1.0;UIMin=0;UIMax=1;Fine=0.0001;Decimals=5",IDC_RNDTD,206,33,36,15,WS_BORDER
+    LTEXT           "Class=SuperRange;Prop=RandomTremoloFrequency;Title=Frequency;Min=0;Mid=0.5;Max=1.0;UIMin=0;UIMax=1;Fine=0.0001;Decimals=5",IDC_RNDTF,167,33,36,15,WS_BORDER
+    LTEXT           "Class=SuperRange;Prop=RandomTremoloDelayTime;Title=DelayTime Cutoff;Min=0;Mid=0.5;Max=1;UIMin=0;UIMax=1;Fine=0.0001;Decimals=5",IDC_RNDTDLY,248,33,36,15,WS_BORDER
+    LTEXT           "Randomise Tremolo",IDC_STATIC,197,20,63,8
+    LTEXT           "Stick",IDC_STATIC,183,374,16,8
+    LTEXT           "Time",IDC_STATIC,218,374,16,8
+    LTEXT           "Tremolo",IDC_STATIC,254,374,26,8
+    LTEXT           "ReTrigger",IDC_STATIC,211,362,32,8
+    GROUPBOX        "Allpass",IDC_STATIC,19,232,139,169
 END
 
 IDD_FDNC_SMALL DIALOGEX 0, 0, 309, 18
@@ -137,7 +146,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 301
         TOPMARGIN, 7
-        BOTTOMMARGIN, 393
+        BOTTOMMARGIN, 401
     END
 END
 #endif    // APSTUDIO_INVOKED
