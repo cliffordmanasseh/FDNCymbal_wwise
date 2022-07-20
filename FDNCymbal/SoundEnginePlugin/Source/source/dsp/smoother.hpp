@@ -18,7 +18,7 @@
 #pragma once
 
 #include "constants.hpp"
-
+#define NOMINMAX
 #include <algorithm>
 #include <array>
 #include <cmath>
@@ -92,11 +92,12 @@ public:
     setTime(time);
   }
 
+
   static void setTime(Sample seconds)
   {
     timeInSamples = seconds * sampleRate;
     kp = Sample(EMAFilter<double>::cutoffToP(
-      sampleRate, std::clamp<double>(1.0 / seconds, 0.0, sampleRate / 2.0)));
+      sampleRate, clamp(1.0 / seconds, 0.0, sampleRate / 2.0)));
   }
   static void setBufferSize(Sample _bufferSize) { bufferSize = _bufferSize; }
 
@@ -138,6 +139,7 @@ public:
 
   inline Sample getValue() { return value; }
   virtual void refresh() { push(target); }
+
 
   void reset(Sample value)
   {
