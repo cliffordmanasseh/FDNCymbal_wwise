@@ -1,5 +1,5 @@
 # FDNCymbal_wwise
-https://ryukau.github.io/VSTPlugins
+
 This is a port of the uhhyou FDN Cymbal plugin for the wwise authoring platform and the windows platform. More platforms to follow.
 
 you can find the original implementation at: https://github.com/ryukau/VSTPlugins/tree/master/FDNCymbal
